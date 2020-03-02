@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public bool hasPowerup;
     private float powerupStrength = 15.0f;
     public GameObject powerupIndicator;
+    public bool isOnGround;
+    public float jumpForce = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        {
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnGround = false; 
+        }
+
         movement();
         powerupIndication();
     }
@@ -34,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         float forwardInput = Input.GetAxis("Vertical");
         playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,8 +58,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
+        if (collision.gameObject.CompareTag("Ground"))
         {
+            isOnGround = true;
+        }
+
+        if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
+        { 
             Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = (collision.gameObject.transform.position - transform.position);
 
