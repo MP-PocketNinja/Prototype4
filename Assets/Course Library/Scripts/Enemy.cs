@@ -18,6 +18,12 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Destroy(GameObject.Find("Enemy"));
+            Destroy(GameObject.Find("bigEnemy"));
+        }
+
         enemyMovement();
         destroyEnemy();
     }

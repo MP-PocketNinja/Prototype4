@@ -223,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8150503650909575352, guid: 8bec80af91df3dd4c9f56d168f4fd1d2,
     type: 3}
+  bigEnemyPrefab: {fileID: 6495660191067945505, guid: 44de23ad0ce7bd74d9db6f016c644433,
+    type: 3}
   enemyCount: 0
   waveNumber: 1
   powerupPrefab: {fileID: 99194405219267829, guid: acc7286e9fb8c3a46b281eecf043fd36,
@@ -816,10 +818,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100.74
-  hasPowerup: 1
+  hasPowerup: 0
   powerupIndicator: {fileID: 587937384}
   isOnGround: 0
-  jumpForce: 101.59
+  jumpForce: 70.74
 --- !u!54 &1397993768
 Rigidbody:
   m_ObjectHideFlags: 0
