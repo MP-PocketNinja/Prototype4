@@ -21,10 +21,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        movement();
+        powerupIndication();
+    }
+
+    private void powerupIndication()
+    {
+        powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
+    }
+
+    private void movement()
+    {
         float forwardInput = Input.GetAxis("Vertical");
         playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
-
-        powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
 
     private void OnTriggerEnter(Collider other)
