@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public GameObject powerupIndicator;
     public bool isOnGround;
     public float jumpForce = 10f;
+    public float dodgeSpeed;
+    public bool canJump = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +25,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && canJump)
         {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false; 
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            isOnGround = false;
+            canJump = false;
+            StartCoroutine(jumpCooldown());
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            playerRb.AddForce(focalPoint.transform.right * dodgeSpeed, ForceMode.VelocityChange);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            playerRb.AddForce(focalPoint.transform.right * -dodgeSpeed, ForceMode.VelocityChange);
+        } 
 
         movement();
         powerupIndication();
@@ -78,5 +92,11 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         powerupIndicator.gameObject.SetActive(false);
+    }
+
+    IEnumerator jumpCooldown()
+    {
+        yield return new WaitForSeconds(5);
+        canJump = true;
     }
 }

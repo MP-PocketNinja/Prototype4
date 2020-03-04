@@ -208,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &907105282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,7 +821,9 @@ MonoBehaviour:
   hasPowerup: 0
   powerupIndicator: {fileID: 587937384}
   isOnGround: 0
-  jumpForce: 70.74
+  jumpForce: 14.7
+  dodgeSpeed: 7
+  canJump: 1
 --- !u!54 &1397993768
 Rigidbody:
   m_ObjectHideFlags: 0
