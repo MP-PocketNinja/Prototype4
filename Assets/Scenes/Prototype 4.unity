@@ -230,7 +230,7 @@ MonoBehaviour:
   powerupPrefab: {fileID: 99194405219267829, guid: acc7286e9fb8c3a46b281eecf043fd36,
     type: 3}
   enemyCount: 0
-  waveNumber: 10
+  waveNumber: 1
 --- !u!4 &907105283
 Transform:
   m_ObjectHideFlags: 0
@@ -823,7 +823,7 @@ MonoBehaviour:
   hasPowerup: 0
   powerupIndicator: {fileID: 587937384}
   isOnGround: 0
-  jumpForce: 14.7
+  jumpForce: 12.41
   dodgeSpeed: 7
   canJump: 1
 --- !u!54 &1397993768
