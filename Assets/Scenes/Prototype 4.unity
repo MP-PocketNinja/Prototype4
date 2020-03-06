@@ -208,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &907105282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,10 +225,12 @@ MonoBehaviour:
     type: 3}
   bigEnemyPrefab: {fileID: 6495660191067945505, guid: 44de23ad0ce7bd74d9db6f016c644433,
     type: 3}
-  enemyCount: 0
-  waveNumber: 1
+  rollerPrefab: {fileID: 8272297011368320674, guid: 9a2331fa9789e3b499ac206939fdd689,
+    type: 3}
   powerupPrefab: {fileID: 99194405219267829, guid: acc7286e9fb8c3a46b281eecf043fd36,
     type: 3}
+  enemyCount: 0
+  waveNumber: 10
 --- !u!4 &907105283
 Transform:
   m_ObjectHideFlags: 0
