@@ -6,10 +6,11 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public GameObject bigEnemyPrefab;
-    private float spawnRange = 9;
+    public GameObject rollerPrefab;
+    public GameObject powerupPrefab;
     public int enemyCount;
     public int waveNumber = 1;
-    public GameObject powerupPrefab; 
+    private float spawnRange = 9;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class SpawnManager : MonoBehaviour
             Instantiate(powerupPrefab, GenerateSpawnPoint(), powerupPrefab.transform.rotation);
             SpawnEnemyWave(waveNumber);
             SpawnBigEnemy(waveNumber);
+            SpawnRoller(waveNumber);
         }
     }
 
@@ -55,6 +57,14 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < waveNumber - 5 ; i++)
         {
             Instantiate(bigEnemyPrefab, GenerateSpawnPoint(), bigEnemyPrefab.transform.rotation);
+        }
+    }
+
+    void SpawnRoller(int waveNumber)
+    {
+        for (int i = 0; i < waveNumber - 10; i++)
+        {
+            Instantiate(rollerPrefab, GenerateSpawnPoint(), rollerPrefab.transform.rotation);
         }
     }
 }
